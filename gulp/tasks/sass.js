@@ -17,20 +17,7 @@ gulp.task("sass", function() {
     .pipe(rename('main.css.liquid'))
     .pipe(gulp.dest(sassDest))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(mediaQueriesSplitter([
-        // Include all CSS rules
-        {media: 'all', filename: 'main.min.css.liquid'},
-
-        // Include only CSS rules without screen size based media queries
-        {media: 'none', filename: 'main-base.min.css.liquid'},
-
-        // Tablet & Mobile
-        {media: [{min: '0px', minUntil: '990px'}, {min: '0px', max: '990px'}], filename: 'main-mobile.min.css.liquid'},
-
-        // Desktop
-        {media: {min: '990x'}, filename: 'main-desktop.min.css.liquid'},
-    ]))
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename('main-base.min.css.liquid'))
     .pipe(gulp.dest(sassDest));
 });
 
