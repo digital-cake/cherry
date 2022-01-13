@@ -1,0 +1,1 @@
+require('../announcement-bar--v1/index');

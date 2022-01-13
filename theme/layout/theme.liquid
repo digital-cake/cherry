@@ -23,14 +23,19 @@
 
     <!-- critical-css: base -->
     <style>{% render 'critical-css-base' %}</style>
+    <link rel="stylesheet" href="{{ 'main-base.min.css' | asset_url }}" />
+
   </head>
 
   <body class="gradient">
+
+    {%- section 'announcement-bar--v1' -%}
 
     <main id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+    <script src="{{ 'site.min.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
