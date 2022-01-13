@@ -5,10 +5,10 @@ window.AnnouncementBar = function() {
 
     this.init = function() {
 
-        var active_bar = document.querySelector('.announcement-bar');
+        var active_bar = document.querySelector('.announcement-bar--v1');
         if (!active_bar) {return}
 
-        document.documentElement.classList.add('announcement-bar--isVisible');
+        document.documentElement.classList.add('announcement-bar--v1--isVisible');
 
         active_bar.addEventListener('mouseenter', function() {
             window._AnnouncementBar.paused = true; 
@@ -21,7 +21,7 @@ window.AnnouncementBar = function() {
         setInterval(function(){
 
             if (!window._AnnouncementBar.paused) {
-                var active_bar = document.querySelector('.announcement-bar .active');
+                var active_bar = document.querySelector('.announcement-bar--v1 .active');
                 var next_element = (active_bar.nextElementSibling) ? active_bar.nextElementSibling : active_bar.parentNode.children[0];
 
                 active_bar.classList.remove('active');

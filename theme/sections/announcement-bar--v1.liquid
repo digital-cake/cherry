@@ -1,13 +1,13 @@
 {%- if section.blocks.size > 0 -%}
-    <div class="announcement-bar">
-        <div class="announcement-bar__wrap">
-            <ul class="announcement-bar__list">
+    <div class="announcement-bar--v1">
+        <div class="announcement-bar--v1__wrap">
+            <ul class="announcement-bar--v1__list">
                 {%- for block in section.blocks -%}
                     <li class="{% if forloop.first %}active{% endif %}">
                         {%- if block.settings.url != blank -%}
-                            <a class="announcement-bar__item" href="{{ block.settings.url }}">{{ block.settings.title }}</a>
+                            <a class="announcement-bar--v1__item" href="{{ block.settings.url }}">{{ block.settings.title }}</a>
                         {%- else -%}
-                            <div class="announcement-bar__item">{{ block.settings.title }}</div>
+                            <div class="announcement-bar--v1__item">{{ block.settings.title }}</div>
                         {%- endif -%}
                     </li>
                 {%- endfor -%}
@@ -21,6 +21,7 @@
 {
     "name": "Announcement Bar",
     "max_blocks": 3,
+    "class": "section-announcement-bar--v1",
     "blocks" : [
         {
             "name": "Announcement",
