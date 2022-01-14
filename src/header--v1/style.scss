@@ -1,0 +1,104 @@
+.section-header--v1 {
+    background-color: $color_3;
+    height: 3.75rem;
+    display: grid;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+        color: $color_2;
+        text-transform: uppercase;
+        font-size: .875rem;
+    }
+
+    nav {
+        grid-area: nav;
+        display: flex;
+        align-items: center;
+        grid-gap: 1rem;
+        
+    }
+
+    .logo {
+        grid-area: logo;
+
+        svg {
+            max-height: 2.5rem;
+            margin-top: auto;
+            color: $color_2;
+            transition: ease-in-out 250ms opacity;
+        }
+    }
+
+    .logo:hover {
+        svg {
+            opacity: 0.75;
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-areas: "logo nav search-form icons";
+        grid-template-columns: max-content auto max-content max-content;
+        align-items: center;
+        grid-gap: .625rem;
+    }
+
+    .search-form {
+        grid-area: search-form;
+        height: 32px;
+        max-width: 280px;
+    
+        button {
+            background-color: $color_2;
+            border: 0;
+            outline: none;
+            width: 2rem;
+        }
+        
+        input {
+            outline: 0;
+            border-radius: 0;
+            width: 100%;
+            border: 1px solid $color_2;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            font-size: 14px;
+        }
+        
+        label {
+            display: none;
+        }
+        
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: $white;
+        }
+    
+        .field {
+            display: flex;
+            height: inherit;
+        }
+    }
+
+    .icons {
+        grid-area: icons;
+        display: flex;
+        grid-gap: .625rem;
+
+        button,
+        a {
+            background-color: $color_2;
+            border: .0625rem solid $color_2;
+            height: 2rem;
+            width: 2rem;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            border-radius: 50%;
+        }
+    }
+}

@@ -31,6 +31,7 @@
 
     {%- section 'announcement-bar--v1' -%}
     {%- section 'announcement-bar--v2' -%}
+    {%- section 'header--v1' -%}
 
     <main id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
@@ -38,5 +39,7 @@
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
     <script src="{{ 'site.min.js' | asset_url }}" defer="defer"></script>
+
+    {%- render 'svgs' -%}
   </body>
 </html>

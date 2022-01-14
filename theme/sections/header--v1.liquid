@@ -1,0 +1,70 @@
+<header>
+    <div class="container">
+        <a href="/" class="logo" aria-label="Return to homepage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="128.655" height="60" viewBox="0 0 128.655 60"><use href="#svg-logo"></use></svg>
+        </a>
+        <nav>
+            {%- for link in linklists[section.settings.nav].links -%}
+                <a href="{{ link.url }}" data-handle="{{ link.title | handleize }}">{{ link.title }}</a>
+            {%- endfor -%}
+        </nav>
+        <form action="{{ routes.search_url }}" method="get" role="search" class="search-form">
+            <div class="field">
+                <input
+                id="Search-In-Template"
+                type="search"
+                name="q"
+                value="{{ search.terms | escape }}"
+                placeholder="{{ 'general.search.search' | t }}"
+                {%- if settings.predictive_search_enabled -%}
+                role="combobox"
+                aria-expanded="false"
+                aria-owns="predictive-search-results-list"
+                aria-controls="predictive-search-results-list"
+                aria-haspopup="listbox"
+                aria-autocomplete="list" 
+                autocorrect="off"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                {%- endif -%}
+                >
+                <label class="field__label" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
+                <input name="options[prefix]" type="hidden" value="last">
+
+                {%- if settings.predictive_search_enabled -%}
+                    <div class="predictive-search predictive-search--search-template" tabindex="-1" data-predictive-search>
+                    <div class="predictive-search__loading-state">
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                    </div>
+                    </div>
+    
+                <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span> 
+                {%- endif -%}
+
+                <button type="submit" class="search__button field__button" aria-label="{{ 'general.search.search' | t }}"></button>
+            </div>
+        </form>
+        <div class="icons">
+            <button aria-label="1"></button>
+            <a href="#" aria-label="2"></a>
+            <button aria-label="3"></button>
+            <a href="#" aria-label="4"></a>
+        </div>
+    </div>
+</header>
+
+{% schema %}
+{
+    "class": "section-header--v1",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "nav",
+            "label": "Navigation"
+        }
+    ]
+}
+{% endschema %}
