@@ -4,7 +4,7 @@ window.AnnouncementBarV2 = function() {
     this.default_speed = 4000;
 
     this.init = function() {
-        console.log('hello 1')
+
         var active_bar = document.querySelector('.announcement-bar--v2');
         if (!active_bar) {return}
 
